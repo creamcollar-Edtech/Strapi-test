@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quiz_scores",
+  "info": {
+    "singularName": "quiz-score",
+    "pluralName": "quiz-scores",
+    "displayName": "quiz_score",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalQuestions": {
+      "type": "biginteger"
+    },
+    "correctAnswers": {
+      "type": "biginteger"
+    },
+    "max_marks": {
+      "type": "biginteger"
+    },
+    "quiz_status": {
+      "type": "enumeration",
+      "enum": [
+        "finished",
+        "In_progress"
+      ]
+    },
+    "quiz_id": {
+      "type": "biginteger"
+    },
+    "user_id": {
+      "type": "biginteger"
+    }
+  }
+}

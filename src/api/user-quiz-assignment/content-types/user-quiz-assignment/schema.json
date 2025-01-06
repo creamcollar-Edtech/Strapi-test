@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_quiz_assignments",
+  "info": {
+    "singularName": "user-quiz-assignment",
+    "pluralName": "user-quiz-assignments",
+    "displayName": "UserQuizAssignment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Quiz_status": {
+      "type": "enumeration",
+      "enum": [
+        "In_progress",
+        "Finished"
+      ]
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "completionTime": {
+      "type": "datetime"
+    },
+    "totalQuestions": {
+      "type": "biginteger"
+    },
+    "correctAnswers": {
+      "type": "biginteger"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "assignments"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::quiz.quiz",
+      "inversedBy": "assignments"
+    },
+    "question_type": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question.question",
+      "inversedBy": "question_type_assignments"
+    },
+    "securedMarks": {
+      "type": "biginteger"
+    },
+    "totalMarks": {
+      "type": "biginteger"
+    },
+    "totalNegativeMarks": {
+      "type": "biginteger"
+    }
+  }
+}

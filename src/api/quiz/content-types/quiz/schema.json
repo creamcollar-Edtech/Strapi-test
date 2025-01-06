@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quizzes",
+  "info": {
+    "singularName": "quiz",
+    "pluralName": "quizzes",
+    "displayName": "Quiz",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "max_marks": {
+      "type": "integer"
+    },
+    "cut_off_marks": {
+      "type": "integer"
+    },
+    "time_limit": {
+      "type": "string"
+    },
+    "quiz_id": {
+      "type": "uid"
+    },
+    "assignments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-quiz-assignment.user-quiz-assignment",
+      "mappedBy": "quiz"
+    },
+    "graded": {
+      "type": "boolean"
+    },
+    "start_time": {
+      "type": "datetime"
+    },
+    "completion_time": {
+      "type": "datetime"
+    },
+    "shuffle": {
+      "type": "boolean"
+    },
+    "quiz_type": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question.question",
+      "mappedBy": "quiz"
+    }
+  }
+}

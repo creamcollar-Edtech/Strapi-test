@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "choices": {
+      "type": "json"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::quiz.quiz",
+      "inversedBy": "questions"
+    },
+    "max_marks": {
+      "type": "integer"
+    },
+    "negative_mark": {
+      "type": "biginteger"
+    },
+    "question_type": {
+      "type": "enumeration",
+      "enum": [
+        "mcq",
+        "mcqWithMoreThanOne",
+        "mcqWithNeg",
+        "surveys",
+        "true/false",
+        "fillInTheBlanks"
+      ]
+    },
+    "explanation": {
+      "type": "text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "engineering",
+        "science"
+      ]
+    },
+    "correctAnswer": {
+      "type": "json"
+    },
+    "question_type_assignments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-quiz-assignment.user-quiz-assignment",
+      "mappedBy": "question_type"
+    }
+  }
+}
