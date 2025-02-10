@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "github_webhooks",
+    "info": {
+      "name": "github-webhook",
+      "description": "Stores data from GitHub webhooks",
+      "singularName": "github-webhook",  
+      "displayName": "github-webhook",
+      "pluralName": "github-webhooks"   
+    },
+    "attributes": {
+      "user_email": {
+        "type": "string"
+      },
+      "repository_name": {
+        "type": "string"
+      },
+      "assignment_name": {
+        "type": "string"
+      },
+      "commit_message": {
+        "type": "text"
+      },
+      "commit_timestamp": {
+        "type": "datetime"
+      },
+      "accepted_status": {
+        "type": "boolean"
+      },
+      "acceptance_date": {
+        "type": "datetime"
+      },
+      "submission_status": {
+        "type": "boolean"
+      }
+    }
+  }
+  

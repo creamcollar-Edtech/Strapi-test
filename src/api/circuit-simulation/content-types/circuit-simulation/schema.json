@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "circuit_simulations",
+  "info": {
+    "singularName": "circuit-simulation",
+    "pluralName": "circuit-simulations",
+    "displayName": "Circuit Simulation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "fileData": {
+      "type": "json"
+    }
+  }
+}

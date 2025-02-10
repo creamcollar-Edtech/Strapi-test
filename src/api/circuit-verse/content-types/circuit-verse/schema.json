@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "circuit_verses",
+  "info": {
+    "singularName": "circuit-verse",
+    "pluralName": "circuit-verses",
+    "displayName": "CircuitVerse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "user": {
+      "type": "string"
+    }
+  }
+}

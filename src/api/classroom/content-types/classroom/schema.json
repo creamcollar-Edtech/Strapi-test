@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classrooms",
+  "info": {
+    "singularName": "classroom",
+    "pluralName": "classrooms",
+    "displayName": "Classroom",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "Description": {
+      "type": "text"
+    },
+    "GitHub_Repo_URL": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "assignment_name": {
+      "type": "string",
+      "required": true
+    },
+    "user_name": {
+      "type": "string"
+    },
+    "github_repo_url": {
+      "type": "string"
+    },
+    "user_status": {
+      "type": "enumeration",
+      "enum": [
+        "accepted",
+        "pending",
+        "not started"
+      ],
+      "default": "pending"
+    }
+  }
+}

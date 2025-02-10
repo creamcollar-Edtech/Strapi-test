@@ -19,4 +19,18 @@ export default ({ env }) => ({
       }
     },
   },
+  'users-permissions': {
+    config: {
+      providers: {
+        github: {
+          enabled: true,
+          icon: 'github',
+          key: env('GITHUB_CLIENT_ID'),
+          secret: env('GITHUB_CLIENT_SECRET'),
+          callback: `${env('BASE_URL')}/api/auth/github/callback`,
+          scope: ['read:user', 'user:email'],
+        },
+      },
+    },
+  },
 });

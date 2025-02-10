@@ -502,6 +502,146 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCircuitSimulationCircuitSimulation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'circuit_simulations';
+  info: {
+    description: '';
+    displayName: 'Circuit Simulation';
+    pluralName: 'circuit-simulations';
+    singularName: 'circuit-simulation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fileData: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::circuit-simulation.circuit-simulation'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCircuitVerseCircuitVerse
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'circuit_verses';
+  info: {
+    displayName: 'CircuitVerse';
+    pluralName: 'circuit-verses';
+    singularName: 'circuit-verse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::circuit-verse.circuit-verse'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.String;
+  };
+}
+
+export interface ApiClassroomClassroom extends Struct.CollectionTypeSchema {
+  collectionName: 'classrooms';
+  info: {
+    description: '';
+    displayName: 'Classroom';
+    pluralName: 'classrooms';
+    singularName: 'classroom';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    assignment_name: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    github_repo_url: Schema.Attribute.String;
+    GitHub_Repo_URL: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::classroom.classroom'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user_name: Schema.Attribute.String;
+    user_status: Schema.Attribute.Enumeration<
+      ['accepted', 'pending', 'not started']
+    > &
+      Schema.Attribute.DefaultTo<'pending'>;
+  };
+}
+
+export interface ApiGithubWebhookGithubWebhook
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'github_webhooks';
+  info: {
+    description: 'Stores data from GitHub webhooks';
+    displayName: 'github-webhook';
+    name: 'github-webhook';
+    pluralName: 'github-webhooks';
+    singularName: 'github-webhook';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    acceptance_date: Schema.Attribute.DateTime;
+    accepted_status: Schema.Attribute.Boolean;
+    assignment_name: Schema.Attribute.String;
+    commit_message: Schema.Attribute.Text;
+    commit_timestamp: Schema.Attribute.DateTime;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::github-webhook.github-webhook'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    repository_name: Schema.Attribute.String;
+    submission_status: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user_email: Schema.Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1288,6 +1428,10 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::circuit-simulation.circuit-simulation': ApiCircuitSimulationCircuitSimulation;
+      'api::circuit-verse.circuit-verse': ApiCircuitVerseCircuitVerse;
+      'api::classroom.classroom': ApiClassroomClassroom;
+      'api::github-webhook.github-webhook': ApiGithubWebhookGithubWebhook;
       'api::global.global': ApiGlobalGlobal;
       'api::question.question': ApiQuestionQuestion;
       'api::quiz-score.quiz-score': ApiQuizScoreQuizScore;
